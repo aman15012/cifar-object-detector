@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta http-equiv="cache-control" content="no-cache" />
+    <link rel="icon" 
+    type="image/png" 
+    href="{{ url_for('static', filename='img/tri.png') }}" />
+
+    <title>Upload</title>
+    
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <link href="{{ url_for('static', filename='css/narrow-jt.css') }}" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header clearfix">
+                
+      </div>
+      <div class="jumbotron1">
+       	<h1>Upload Image</h1>
+       	<p>Upload an image and detect objects from the CIFAR-10 dataset in it.</p>
+        <br>
+        <br>
+        <form method=post enctype=multipart/form-data>
+          <p><input type=file name=file>
+             <input type=submit value=Upload>
+        </form>
+      </div>
+
+      <footer class="footer">
+        <div class="icons">
+        <a href="https://github.com/aman15012/cifar-object-detector" target="_blank"><img src="{{ url_for('static', filename='img/github-512.png') }}" class="si" ></a>
+        </div>
+      </footer>
+
+
+    </div>
+  </body>
+</html>

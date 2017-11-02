@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script type="text/javascript">
+      window.onload = function () {
+      var dataPoints = JSON.parse('{{ dataPoints|safe }}');
+      console.log(dataPoints);
+      var chart = new CanvasJS.Chart("chartContainer", {
+        animationEnabled: true,
+        title: {
+          text: "Predictions"
+        },
+        axisX: {
+          interval: 1
+        },
+        data: [{
+          type: "bar",
+          dataPoints: dataPoints
+          
+        }]
+      });
+      chart.render();
+       
+      }
+    </script>
+    <br>
+    <meta charset="utf-8">
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link rel="icon" 
+    type="image/png" 
+    href="{{ url_for('static', filename='img/tri.png') }}" />
+
+    <title>Results</title>
+    
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <link href="{{ url_for('static', filename='css/narrow-jt.css') }}" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills float-right">
+            <li class="nav-item">
+              <a class="nav-link active" href="{{ url_for('upload') }}">
+              back
+              </a>
+            </li>
+          </ul>
+        </nav>
+        
+      </div>
+       <div class="jumbotron1">
+        <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+        <br>
+        {% if a != 0 %}
+         <center> <img style="float:center" height="400px" width="400px" src="{{ url_for('static', filename=filename[0]) }}">
+          <h1>1.{{a[0]}}</h1>
+          </center>
+        {% endif %}
+        <br>
+        {% if b != 0 %}
+          <center>  
+            <img align="middle" height="400px" width="400px" src="{{ url_for('static', filename=filename[1]) }}">
+            <h1>2.{{b[0]}}</h1>
+          </center>
+        {% endif %}
+        <br>
+        {% if c != 0 %}
+          <center>
+            <img align="middle" height="400px" width="400px" src="{{ url_for('static', filename=filename[2]) }}">
+            <h1>3.{{c[0]}}</h1>
+          </center>
+        {% endif %}
+
+      </div>        
+
+      <footer class="footer">
+        <div class="icons">
+        <a href="https://github.com/aman15012/cifar-object-detector" target="_blank"><img src="{{ url_for('static', filename='img/github-512.png') }}" class="si" ></a>
+        </div>
+      </footer>
+
+
+    </div>
+  </body>
+</html>
