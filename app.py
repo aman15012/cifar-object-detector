@@ -85,7 +85,7 @@ def results(filename,millis):
 					# dictionayr[i] = [max_accuracy(i),sum_accuracies(i),i,(coordinates_of_max_accuracy(i))]
 					if(len(dictionary[index[0]]) == 0):
 						dictionary[index[0]] = [value,value,index[0],resized,x,y,x+winW,y+winH]
-					elif(dictionary[index[0]][1]<value):
+					elif(dictionary[index[0]][1] < value or (dictionary[index[0]][3].shape > resized.shape and abs(dictionary[index[0]][1] - value)<=0.0001)):
 						temp  = dictionary[index[0]][0] + value
 						dictionary[index[0]] = [temp,value,index[0],resized,x,y,x+winW,y+winH]
 					else:
